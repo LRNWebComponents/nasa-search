@@ -1,0 +1,73 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-card/paper-card.html">
+
+<!--
+`nasa-card`
+A LRN element
+
+@demo demo/index.html
+
+@microcopy - the mental model for this element
+ -
+ -
+
+-->
+
+<dom-module id="nasa-card">
+  <template>
+    <style>
+    :host {
+      display:block;
+      max-width: 400px;
+    }
+    paper-card {
+      max-height: 400px;
+      --paper-card-header-image: {
+        height: 200px;
+        opacity: .8;
+      };
+      --paper-card-header-image-text: {
+        background-color: black;
+        color: white;
+      };
+      --paper-card-content: {
+        max-height: 100px;
+        height: 100px;
+        overflow: scroll;
+      }
+    }
+    </style>
+    <paper-card heading="[[title]]" image="[[image]]" alt="">
+      <div class="card-content">
+        [[description]]
+      </div>
+    </paper-card>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'nasa-card',
+      properties: {
+        /**
+         * Long text
+         */
+        description: {
+          type: String,
+        },
+        /**
+         * Image source
+         */
+        image: {
+          type: String,
+        },
+        /**
+         * Title
+         */
+        title: {
+          type: String,
+        }
+      },
+    });
+  </script>
+</dom-module>
